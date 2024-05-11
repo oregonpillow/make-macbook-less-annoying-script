@@ -17,7 +17,7 @@ When the Macbook exits clamshell mode, it does **NOT** re-enable wireless connec
 
 - `brew install blueutil`
 - Make the script executable `chmod +x clamshell.sh`
-- Create a crontab entry using `crontab -e` --> `\* \* \* \* \* <path to clamshell.sh>
+- Create a crontab entry using `crontab -e` --> `\* \* \* \* \* <path to clamshell.sh>`
 
 ## Motivation
 
