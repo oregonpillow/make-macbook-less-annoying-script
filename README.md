@@ -37,5 +37,5 @@ If you decide to stop running the script, running `/usr/bin/pmset restoreDefault
 ## Improvement Ideas
 
 - I think there might be a way to create hooks for sleep events, which would be better to avoid using crontab
-- I would prefer to avoid using 'blueutil' as a dependency, but didn't find a way to set bluetooth power state without this
+- I would prefer to avoid using `blueutil` as a dependency, but didn't find a way to set bluetooth power state without this
 - I've heard of `sleepwatcher`, available through brew as an alternative way to run hooks on sleep status, but again, I would like to avoid external dependencies
