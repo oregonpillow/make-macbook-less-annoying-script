@@ -3,9 +3,6 @@
 
 # collect statuses
 CLAMCLOSED=$(/usr/sbin/ioreg -r -k AppleClamshellState -d 4 | grep -q '"AppleClamshellState" = Yes' && echo "true" || echo "false")
-BLUEOFF=$(/usr/sbin/system_profiler SPBluetoothDataType | grep -q "State: Off" && echo "true" || echo "false")
-WIFIOFF=$(/usr/sbin/networksetup -getairportpower en0 | grep -q "Wi-Fi Power (en0): Off" && echo "true" || echo "false")
-MUTED=$(/usr/bin/osascript -e "output muted of (get volume settings)")
 SLEEPOFF=$(/usr/bin/pmset -g | grep "SleepDisabled" | grep -q -o -E '[1]' && echo "true" || echo "false")
 POWERED=$(/usr/bin/pmset -g batt | head -n 1 | cut -c19- | rev | cut -c 2- | rev | grep -q "AC Power" && echo "true" || echo "false")
 
@@ -15,6 +12,11 @@ if [ $SLEEPOFF = "false" ] && [ $POWERED = "false" ]; then
 fi
 
 if [ $CLAMCLOSED = "true" ] && [ $POWERED = "false" ]; then
+  
+  # collect more statuses
+  BLUEOFF=$(/usr/sbin/system_profiler SPBluetoothDataType | grep -q "State: Off" && echo "true" || echo "false")
+  WIFIOFF=$(/usr/sbin/networksetup -getairportpower en0 | grep -q "Wi-Fi Power (en0): Off" && echo "true" || echo "false")
+  MUTED=$(/usr/bin/osascript -e "output muted of (get volume settings)")
 
   # disable bluetooth
   if [ $BLUEOFF = "false" ]; then
