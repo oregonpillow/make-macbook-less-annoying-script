@@ -1,15 +1,17 @@
-# Clamshell Connectivity Crusher
+# make-macbook-less-annoying-script
 
-Crush wireless connectivity when Macbook enters clamshell mode.
 
 ## What the script does
 
-When the Macbook is in clamshell mode + battery powered:
-
-- turns off wifi adaptor
-- turns off bluetooth adaptor
-- Mutes the volume
-- Forces sleep mode
+- Upon Clamshell mode (closed) + battery: 
+  - Mutes the volume 🔉❌
+  - turns off wifi adaptor 🛜❌
+  - turns off bluetooth adaptor 🛜❌
+  - Forces sleep mode 💤✅
+ 
+However, in order for this to work, the following non-default behaviour occurs:
+- Disables sleep mode on AC power 💤❌🔌
+- Disables sleep mode on battery when NOT in clamshell mode (open) 💤❌ 🔋💻. Therefore, to make your mac sleep on battery --> Close the lid!
 
 When the Macbook exits clamshell mode, it does **NOT** re-enable wireless connectivity or un-mute the volume. This is by design.
 
