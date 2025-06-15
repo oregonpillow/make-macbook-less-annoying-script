@@ -15,10 +15,10 @@ if [ $CLAMCLOSED = "true" ] && [ $POWERED = "false" ]; then
   /usr/bin/osascript -e "set volume with output muted"
   # disable bluetooth
   /opt/homebrew/bin/blueutil --power 0
-  # disable wifi
-  /usr/sbin/networksetup -setairportpower en0 off
   # diconnect wireguard if enabled
   /opt/homebrew/bin/wg-quick down home
+  # disable wifi
+  /usr/sbin/networksetup -setairportpower en0 off
   # enable sleep
   sudo /usr/bin/pmset -b disablesleep 0
   # force sleep
